@@ -176,8 +176,8 @@ class EventsController: UIViewController, UITableViewDataSource, UITableViewDele
         if self.zipCodeTextField.isFirstResponder() {
             self.zipCodeTextField.resignFirstResponder()
         }
-        
-        let distances = ["5 Miles", "10 Miles", "20 Miles", "50 Miles", "100 Miles", "250 Miles"]
+        let distanceUnit = NSLocalizedString("Events_searchRadiusUnit", comment: "")
+        let distances = ["5 \(distanceUnit)", "10 \(distanceUnit)", "20 \(distanceUnit)", "50 \(distanceUnit)", "100 \(distanceUnit)", "250 \(distanceUnit)"]
         
         let distancePicker = ActionSheetStringPicker(
             title: "Distance",
@@ -216,7 +216,7 @@ class EventsController: UIViewController, UITableViewDataSource, UITableViewDele
         zipCodeTextField.keyboardType = .NumberPad
         
         searchRadiusField.inputView = UIView(frame: CGRectMake(0, 0, 1, 1))
-        searchRadiusField.text = NSLocalizedString("Events_defaultSearchRadius", comment: "")
+        searchRadiusField.text = "50 \(NSLocalizedString("Events_searchRadiusUnit", comment: ""))"
         searchRadiusField.addTarget(self, action: "didTapSearchRadius:", forControlEvents: .EditingDidBegin)
         
         searchEventsButton.setTitle(NSLocalizedString("Events_eventSearchButtonTitle", comment: ""), forState: .Normal)

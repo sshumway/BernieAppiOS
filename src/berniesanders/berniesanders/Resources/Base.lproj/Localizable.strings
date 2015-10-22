@@ -44,7 +44,7 @@
 "Events_eventZipCodeDoneButtonTitle" = "Done";
 "Events_eventZipCodeCancelButtonTitle" = "Cancel";
 "Events_instructions" = "Enter your ZIP code above to find Bernie events near you!";
-"Events_defaultSearchRadius" = "50 Miles";
+"Events_searchRadiusUnit" = "Miles";
 
 // Event
 
