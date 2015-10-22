@@ -84,11 +84,25 @@ class DefaultTheme: Theme {
     func eventsZipCodeFont() -> UIFont { return UIFont.systemFontOfSize(17) }
     func eventsZipCodeCornerRadius() -> CGFloat { return self.defaultCornerRadius() }
     func eventsZipCodeBorderWidth() -> CGFloat { return self.defaultBorderWidth() }
-    func eventsZipCodeTextOffset() -> CATransform3D { return CATransform3DMakeTranslation(4, 0, 0); }
+    func eventsZipCodeTextOffset() -> CATransform3D { return CATransform3DMakeTranslation(4, 0, 0) }
     func eventsGoButtonCornerRadius() -> CGFloat { return self.defaultCornerRadius() }
     func eventsNoResultsTextColor() -> UIColor { return self.cornflowerBlueColor() }
     func eventsNoResultsFont() -> UIFont { return UIFont.systemFontOfSize(15) }
-
+    func eventsDistanceTextColor() -> UIColor { return self.cornflowerBlueColor() }
+    func eventsDistanceBackgroundColor() -> UIColor { return UIColor.whiteColor() }
+    func eventsDistanceBorderColor() -> UIColor { return self.altoColor() }
+    func eventsDistanceFont() -> UIFont { return UIFont.systemFontOfSize(17) }
+    func eventsDistanceCornerRadius() -> CGFloat { return self.defaultCornerRadius() }
+    func eventsDistanceBorderWidth() -> CGFloat { return self.defaultBorderWidth() }
+    func eventsDistanceTextOffset() -> CATransform3D { return CATransform3DMakeTranslation(4, 0, 0) }
+    func eventsSearchButtonTextColor() -> UIColor { return UIColor.whiteColor() }
+    func eventsSearchButtonColor() -> UIColor { return self.cornflowerBlueColor() }
+    func eventsSearchButtonFont() -> UIFont { return UIFont.systemFontOfSize(12) }
+    func eventsSearchButtonCornerRadius() -> CGFloat { return self.defaultCornerRadius() }
+    func eventsSearchButtonTitleEdgeInset() -> CGFloat { return 4 }
+    func eventsDistancePickerBarColor() -> UIColor { return self.cornflowerBlueColor() }
+    func eventsDistancePickerTitleColor() -> UIColor { return UIColor.whiteColor() }
+    
     // MARK: Event screen
 
     func eventNameFont() -> UIFont { return self.defaultHeaderFont() }

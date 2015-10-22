@@ -80,6 +80,20 @@ protocol Theme {
     func eventsNoResultsFont() -> UIFont
     func eventsInstructionsFont() -> UIFont
     func eventsInstructionsTextColor() -> UIColor
+    func eventsDistanceTextColor() -> UIColor
+    func eventsDistanceBackgroundColor() -> UIColor
+    func eventsDistanceBorderColor() -> UIColor
+    func eventsDistanceFont() -> UIFont
+    func eventsDistanceCornerRadius() -> CGFloat
+    func eventsDistanceBorderWidth() -> CGFloat
+    func eventsDistanceTextOffset() -> CATransform3D
+    func eventsSearchButtonTextColor() -> UIColor
+    func eventsSearchButtonColor() -> UIColor
+    func eventsSearchButtonFont() -> UIFont
+    func eventsSearchButtonCornerRadius() -> CGFloat
+    func eventsSearchButtonTitleEdgeInset() -> CGFloat
+    func eventsDistancePickerBarColor() -> UIColor
+    func eventsDistancePickerTitleColor() -> UIColor
 
     // MARK: Event screen
 
