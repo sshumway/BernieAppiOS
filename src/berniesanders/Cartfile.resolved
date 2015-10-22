@@ -1,3 +1,4 @@
+github "skywinder/ActionSheetPicker-3.0" "2.0.3"
 github "Quick/Nimble" "v2.0.0"
 github "smileyborg/PureLayout" "v3.0.1"
 github "Quick/Quick" "v0.6.0"

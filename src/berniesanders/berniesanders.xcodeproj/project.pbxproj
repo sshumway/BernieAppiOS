@@ -52,10 +52,10 @@
 		654773FF1BB23FAE00B87670 /* ConcreteEventRepositorySpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 654773FE1BB23FAE00B87670 /* ConcreteEventRepositorySpec.swift */; };
 		654774031BB2418400B87670 /* EventDeserializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 654774021BB2418400B87670 /* EventDeserializer.swift */; };
 		654774051BB241D900B87670 /* ConcreteEventDeserializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 654774041BB241D900B87670 /* ConcreteEventDeserializer.swift */; };
-		654A4DCF1BCD831100FC523F /* ConcreteTabBarItemStylist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 654A4DCE1BCD831100FC523F /* ConcreteTabBarItemStylist.swift */; settings = {ASSET_TAGS = (); }; };
-		654A4DD21BCD850000FC523F /* ConcreteTabBarItemStylistSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 654A4DD11BCD850000FC523F /* ConcreteTabBarItemStylistSpec.swift */; settings = {ASSET_TAGS = (); }; };
-		654A4DD51BCD861C00FC523F /* TabBarItemStylist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 654A4DD41BCD861C00FC523F /* TabBarItemStylist.swift */; settings = {ASSET_TAGS = (); }; };
-		654A4DD71BCD865200FC523F /* FakeTabBarItemStylist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 654A4DD61BCD865200FC523F /* FakeTabBarItemStylist.swift */; settings = {ASSET_TAGS = (); }; };
+		654A4DCF1BCD831100FC523F /* ConcreteTabBarItemStylist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 654A4DCE1BCD831100FC523F /* ConcreteTabBarItemStylist.swift */; };
+		654A4DD21BCD850000FC523F /* ConcreteTabBarItemStylistSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 654A4DD11BCD850000FC523F /* ConcreteTabBarItemStylistSpec.swift */; };
+		654A4DD51BCD861C00FC523F /* TabBarItemStylist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 654A4DD41BCD861C00FC523F /* TabBarItemStylist.swift */; };
+		654A4DD71BCD865200FC523F /* FakeTabBarItemStylist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 654A4DD61BCD865200FC523F /* FakeTabBarItemStylist.swift */; };
 		654AD3531BB876A200A59966 /* EventControllerProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 654AD3521BB876A200A59966 /* EventControllerProvider.swift */; };
 		654AD3551BB876C700A59966 /* EventController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 654AD3541BB876C700A59966 /* EventController.swift */; };
 		654AD3571BB8787000A59966 /* ConcreteEventControllerProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 654AD3561BB8787000A59966 /* ConcreteEventControllerProvider.swift */; };
@@ -136,7 +136,7 @@
 		65D0ECEB1BBB8DD20063B1D0 /* ConcreteEventRSVPControllerProviderSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D0ECEA1BBB8DD20063B1D0 /* ConcreteEventRSVPControllerProviderSpec.swift */; };
 		65D8ADC31BC1B83E005CD5FD /* FakeStringContentSanitizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D8ADC21BC1B83E005CD5FD /* FakeStringContentSanitizer.swift */; };
 		65DE8D931B955E15008C239F /* NewsItemControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65DE8D921B955E15008C239F /* NewsItemControllerSpec.swift */; };
-		65E06CAB1BCB30DC00BDDA61 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8233FC151B7C28FB00A5E9ED /* Images.xcassets */; settings = {ASSET_TAGS = (); }; };
+		65E06CAB1BCB30DC00BDDA61 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8233FC151B7C28FB00A5E9ED /* Images.xcassets */; };
 		65E4A4FC1BC6DA050027501D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8233FC151B7C28FB00A5E9ED /* Images.xcassets */; };
 		65EA2F291BB9B648001D8FD5 /* FakeDateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65EA2F281BB9B648001D8FD5 /* FakeDateFormatter.swift */; };
 		65EC4CEC1B842A0B00DD4C83 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65EC4CEB1B842A0B00DD4C83 /* Nimble.framework */; };
@@ -161,6 +161,9 @@
 		8233FC0D1B7C28FB00A5E9ED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8233FC0C1B7C28FB00A5E9ED /* AppDelegate.swift */; };
 		8233FC301B7C48A500A5E9ED /* NewsFeedController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8233FC2F1B7C48A500A5E9ED /* NewsFeedController.swift */; };
 		8233FC321B7C4A9600A5E9ED /* IssuesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8233FC311B7C4A9600A5E9ED /* IssuesController.swift */; };
+		D252AAF21BD922D7009F8C3B /* CoreActionSheetPicker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D252AAF11BD922D7009F8C3B /* CoreActionSheetPicker.framework */; };
+		D252AAF41BD922EB009F8C3B /* CoreActionSheetPicker.framework.dSYM in Resources */ = {isa = PBXBuildFile; fileRef = D252AAF31BD922EB009F8C3B /* CoreActionSheetPicker.framework.dSYM */; };
+		D252AAF51BD9233D009F8C3B /* CoreActionSheetPicker.framework.dSYM in Copy symbolication files */ = {isa = PBXBuildFile; fileRef = D252AAF31BD922EB009F8C3B /* CoreActionSheetPicker.framework.dSYM */; };
 		DF90BBCB1BC5090200F9FA53 /* DonateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF90BBCA1BC5090200F9FA53 /* DonateTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -181,6 +184,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 16;
 			files = (
+				D252AAF51BD9233D009F8C3B /* CoreActionSheetPicker.framework.dSYM in Copy symbolication files */,
 				65B165541B9747350052EF8D /* KSDeferred.framework.dSYM in Copy symbolication files */,
 				65B165561B9747350052EF8D /* PureLayout.framework.dSYM in Copy symbolication files */,
 				65B165571B9747350052EF8D /* WebImage.framework.dSYM in Copy symbolication files */,
@@ -360,6 +364,8 @@
 		8233FC231B7C28FB00A5E9ED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8233FC2F1B7C48A500A5E9ED /* NewsFeedController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsFeedController.swift; sourceTree = "<group>"; };
 		8233FC311B7C4A9600A5E9ED /* IssuesController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IssuesController.swift; sourceTree = "<group>"; };
+		D252AAF11BD922D7009F8C3B /* CoreActionSheetPicker.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreActionSheetPicker.framework; path = Carthage/Build/iOS/CoreActionSheetPicker.framework; sourceTree = "<group>"; };
+		D252AAF31BD922EB009F8C3B /* CoreActionSheetPicker.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = CoreActionSheetPicker.framework.dSYM; path = Carthage/Build/iOS/CoreActionSheetPicker.framework.dSYM; sourceTree = "<group>"; };
 		DF90BBCA1BC5090200F9FA53 /* DonateTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DonateTableViewCell.swift; path = "../View Controllers/DonateTableViewCell.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -369,6 +375,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				65A5C0FC1BA29F2200D46500 /* Crashlytics.framework in Frameworks */,
+				D252AAF21BD922D7009F8C3B /* CoreActionSheetPicker.framework in Frameworks */,
 				65A5C0FA1BA2978600D46500 /* Fabric.framework in Frameworks */,
 				650763141B8AB79F00BA0659 /* KSDeferred.framework in Frameworks */,
 				65CA5E991B86E76D0001D870 /* PureLayout.framework in Frameworks */,
@@ -696,6 +703,8 @@
 		65EC4CF21B842A3D00DD4C83 /* Carthage */ = {
 			isa = PBXGroup;
 			children = (
+				D252AAF11BD922D7009F8C3B /* CoreActionSheetPicker.framework */,
+				D252AAF31BD922EB009F8C3B /* CoreActionSheetPicker.framework.dSYM */,
 				650763131B8AB79F00BA0659 /* KSDeferred.framework */,
 				65B1654C1B9747240052EF8D /* KSDeferred.framework.dSYM */,
 				65EC4CEB1B842A0B00DD4C83 /* Nimble.framework */,
@@ -992,6 +1001,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				654FDBBB1BC1862800A082CF /* cssInjection.js in Resources */,
+				D252AAF41BD922EB009F8C3B /* CoreActionSheetPicker.framework.dSYM in Resources */,
 				65B165591B9789C00052EF8D /* Entitlements.plist in Resources */,
 				654FDBBD1BC1867F00A082CF /* feedbackGoogleFormOverrides.css in Resources */,
 				655A3DB81BBCCE7400E08051 /* floss_licenses.html in Resources */,
@@ -1042,6 +1052,7 @@
 				"$(PROJECT_DIR)/Carthage/Build/iOS/KSDeferred.framework",
 				"$(PROJECT_DIR)/Carthage/Build/iOS/PureLayout.framework",
 				"$(PROJECT_DIR)/Carthage/Build/iOS/WebImage.framework",
+				"$(PROJECT_DIR)/Carthage/Build/iOs/CoreActionSheetPicker.framework",
 			);
 			name = "Copy Carthage frameworks";
 			outputPaths = (
