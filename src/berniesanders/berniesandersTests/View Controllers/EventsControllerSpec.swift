@@ -57,10 +57,6 @@ class EventsFakeTheme : FakeTheme {
         return CATransform3DMakeTranslation(4, 5, 6);
     }
 
-    override func eventsGoButtonCornerRadius() -> CGFloat {
-        return 300
-    }
-
     override func eventsNoResultsFont() -> UIFont {
         return UIFont.italicSystemFontOfSize(888)
     }
@@ -80,6 +76,21 @@ class EventsFakeTheme : FakeTheme {
     override func eventsInstructionsTextColor() -> UIColor {
         return UIColor.whiteColor()
     }
+    
+//    func eventsDistanceTextColor() -> UIColor
+//    func eventsDistanceBackgroundColor() -> UIColor
+//    func eventsDistanceBorderColor() -> UIColor
+//    func eventsDistanceFont() -> UIFont
+//    func eventsDistanceCornerRadius() -> CGFloat
+//    func eventsDistanceBorderWidth() -> CGFloat
+//    func eventsDistanceTextOffset() -> CATransform3D
+//    func eventsSearchButtonTextColor() -> UIColor
+//    func eventsSearchButtonColor() -> UIColor
+//    func eventsSearchButtonFont() -> UIFont
+//    func eventsSearchButtonCornerRadius() -> CGFloat
+//    func eventsSearchButtonTitleEdgeInset() -> CGFloat
+//    func eventsDistancePickerBarColor() -> UIColor
+//    func eventsDistancePickerTitleColor() -> UIColor
 }
 
 class FakeEventRepository : EventRepository {
