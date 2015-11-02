@@ -12,15 +12,21 @@ class DefaultTheme: Theme {
 
     // MARK: Tab Bar
 
-    func tabBarTintColor() -> UIColor { return self.cornflowerBlueColor() }
+    func tabBarTintColor() -> UIColor { return self.codGrayColor() }
     func tabBarFont() -> UIFont { return UIFont.systemFontOfSize(11) }
-    func tabBarActiveTextColor() -> UIColor { return UIColor.whiteColor() }
+    func tabBarActiveTextColor() -> UIColor { return self.galleryColor() }
     func tabBarInactiveTextColor() -> UIColor { return self.silverColor() }
 
     // MARK: Navigation Bar
 
-    func navigationBarBackgroundColor() -> UIColor { return self.cornflowerBlueColor() }
-    func navigationBarFont() -> UIFont { return UIFont.systemFontOfSize(17) }
+    func navigationBarBackgroundColor() -> UIColor { return self.codGrayColor() }
+    func navigationBarFont() -> UIFont {
+        if #available(iOS 8.2, *) {
+            return UIFont.systemFontOfSize(16, weight: UIFontWeightLight)
+        } else {
+            return UIFont.systemFontOfSize(16)
+        }
+    }
     func navigationBarTextColor() -> UIColor { return UIColor.whiteColor()}
 
     // MARK: News Feed
@@ -44,11 +50,11 @@ class DefaultTheme: Theme {
 
     // MARK: News Item detail screen
 
-    func newsItemDateFont() -> UIFont { return UIFont.boldSystemFontOfSize(12) }
-    func newsItemDateColor() -> UIColor { return self.carnationColor() }
-    func newsItemTitleFont() -> UIFont { return defaultHeaderFont() }
-    func newsItemTitleColor() -> UIColor { return cornflowerBlueColor() }
-    func newsItemBodyFont() -> UIFont { return defaultBodyTextFont() }
+    func newsItemDateFont() -> UIFont { return UIFont.systemFontOfSize(13) }
+    func newsItemDateColor() -> UIColor { return self.scorpionColor() }
+    func newsItemTitleFont() -> UIFont { return UIFont(name: "Georgia-Bold", size: 26)! }
+    func newsItemTitleColor() -> UIColor { return UIColor.blackColor() }
+    func newsItemBodyFont() -> UIFont { return UIFont(name: "Georgia", size: 18)! }
     func newsItemBodyColor() -> UIColor { return UIColor.blackColor() }
     func newsFeedHeadlineTitleFont() -> UIFont { return UIFont.boldSystemFontOfSize(16) }
     func newsfeedHeadlineTitleColor() -> UIColor { return UIColor.whiteColor() }
@@ -148,9 +154,13 @@ class DefaultTheme: Theme {
     func cornflowerBlueColor() -> UIColor { return UIColor(rgba: "#147FD7") }
     func carnationColor() -> UIColor { return UIColor(rgba: "#fc625c") }
     func silverColor() -> UIColor { return UIColor(rgba: "#c9c9c9") }
-    func galleryColor() -> UIColor { return UIColor(rgba: "#eeeeee") }
+    func codGrayColor() -> UIColor { return UIColor(rgba: "#1b1b1b") }
+    func galleryColor() -> UIColor { return UIColor(rgba: "#ececec") }
     func altoColor() -> UIColor { return UIColor(rgba: "#dcdcdc") }
     func silverChaliceColor() -> UIColor { return UIColor(rgba: "#a5a5a5") }
+    func chathamsBlueColor() -> UIColor { return UIColor(rgba: "#194d7b") }
+    func scorpionColor() -> UIColor { return UIColor(rgba: "#606060") }
+
     // MARK: font definitions
 
     func defaultHeaderFont() -> UIFont { return UIFont.systemFontOfSize(17) }

@@ -18,12 +18,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let defaultTheme = DefaultTheme()
 
             UITabBar.appearance().tintColor = defaultTheme.tabBarActiveTextColor()
+            UITabBar.appearance().translucent = false
             UINavigationBar.appearance().tintColor = defaultTheme.navigationBarTextColor()
             UIBarButtonItem.appearance().setTitleTextAttributes([
                 NSFontAttributeName: defaultTheme.navigationBarFont(), NSForegroundColorAttributeName: defaultTheme.navigationBarTextColor()], forState: UIControlState.Normal)
 
 
+            let dateProvider = ConcreteDateProvider()
             let mainQueue = NSOperationQueue.mainQueue()
+            let mainScreen = UIScreen.mainScreen()
             let sharedURLSession = NSURLSession.sharedSession()
             let applicationSettingsRepository = ConcreteApplicationSettingsRepository(
                 userDefaults: NSUserDefaults.standardUserDefaults())
@@ -57,7 +60,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 urlOpener: urlOpener,
                 urlProvider: urlProvider,
                 analyticsService: analyticsService,
+                tabBarItemStylist: tabBarItemStylist,
                 theme: defaultTheme)
+        let settingsNavigationController = NavigationController(theme: defaultTheme)
+        settingsNavigationController.pushViewController(settingsController, animated: false)
+
 
             let newsItemDeserializer = ConcreteNewsItemDeserializer(stringContentSanitizer: stringContentSanitizer)
             let newsItemRepository = ConcreteNewsItemRepository(
@@ -66,13 +73,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 newsItemDeserializer: newsItemDeserializer,
                 operationQueue: mainQueue
             )
+
+        let humanTimeIntervalFormatter = ConcreteHumanTimeIntervalFormatter(dateProvider: dateProvider)
             let longDateFormatter = NSDateFormatter()
             longDateFormatter.dateStyle = NSDateFormatterStyle.LongStyle
             let fullDateWithTimeFormatter = NSDateFormatter()
             fullDateWithTimeFormatter.dateFormat = "EEEE MMMM d, y h:mm a z"
 
             let newsItemControllerProvider = ConcreteNewsItemControllerProvider(
-                dateFormatter: longDateFormatter, imageRepository: imageRepository, analyticsService: analyticsService, urlOpener: urlOpener, urlAttributionPresenter: urlAttributionPresenter, theme: defaultTheme
+                humanTimeIntervalFormatter: humanTimeIntervalFormatter, imageRepository: imageRepository, analyticsService: analyticsService, urlOpener: urlOpener, urlAttributionPresenter: urlAttributionPresenter, theme: defaultTheme
             )
 
             let newsFeedController = NewsFeedController(
@@ -80,7 +89,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 imageRepository: imageRepository,
                 dateFormatter: longDateFormatter,
                 newsItemControllerProvider: newsItemControllerProvider,
-                settingsController: settingsController,
                 analyticsService: analyticsService,
                 tabBarItemStylist: tabBarItemStylist,
                 theme: defaultTheme
@@ -106,7 +114,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let issuesTableController = IssuesController(
                 issueRepository: issueRepository,
                 issueControllerProvider: issueControllerProvider,
-                settingsController: settingsController,
                 analyticsService: analyticsService,
                 tabBarItemStylist: tabBarItemStylist,
                 theme: defaultTheme
@@ -133,7 +140,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let eventsController = EventsController(
                 eventRepository: eventRepository,
                 eventPresenter: eventPresenter,
-                settingsController: settingsController,
                 eventControllerProvider: eventControllerProvider,
                 analyticsService: analyticsService,
                 tabBarItemStylist: tabBarItemStylist,
@@ -143,11 +149,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             eventsNavigationController.pushViewController(eventsController, animated: false)
 
             let tabBarViewControllers = [
+                eventsNavigationController,
                 newsNavigationController,
                 issuesNavigationController,
-                eventsNavigationController
+                settingsNavigationController
             ]
+
             let tabBarController = TabBarController(viewControllers: tabBarViewControllers, analyticsService: analyticsService, theme: defaultTheme)
+            tabBarController.selectedIndex = 1
+            let rawSelectedTabBarBackground = UIImage(named: "selectedTabBarBackground")!
+            let croppedSelectedTabBarBackgroundImageRef = CGImageCreateWithImageInRect(rawSelectedTabBarBackground.CGImage, CGRect(x: 0, y: 0, width: mainScreen.bounds.width / CGFloat(tabBarViewControllers.count), height: 49))
+            let croppedSelectedTabBarBackground = UIImage(CGImage:croppedSelectedTabBarBackgroundImageRef!)
+            UITabBar.appearance().selectionIndicatorImage = croppedSelectedTabBarBackground
+
 
             let welcomeController = WelcomeController(
                 applicationSettingsRepository: applicationSettingsRepository,
@@ -166,7 +180,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             welcomeController.onboardingRouter = onboardingRouter
 
             onboardingRouter.initialViewController { (controller) -> Void in
-                self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
+                self.window = UIWindow(frame: mainScreen.bounds)
                 self.window!.rootViewController = controller
                 self.window!.backgroundColor = defaultTheme.defaultBackgroundColor()
                 self.window!.makeKeyAndVisible()

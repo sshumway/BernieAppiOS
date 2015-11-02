@@ -7,7 +7,6 @@ import CoreActionSheetPicker
 class EventsController: UIViewController, UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate {
     let eventRepository: EventRepository
     let eventPresenter: EventPresenter
-    let settingsController: SettingsController
     private let eventControllerProvider: EventControllerProvider
     private let analyticsService: AnalyticsService
     private let tabBarItemStylist: TabBarItemStylist
@@ -25,7 +24,6 @@ class EventsController: UIViewController, UITableViewDataSource, UITableViewDele
 
     init(eventRepository: EventRepository,
         eventPresenter: EventPresenter,
-        settingsController: SettingsController,
         eventControllerProvider: EventControllerProvider,
         analyticsService: AnalyticsService,
         tabBarItemStylist: TabBarItemStylist,
@@ -33,7 +31,6 @@ class EventsController: UIViewController, UITableViewDataSource, UITableViewDele
 
         self.eventRepository = eventRepository
         self.eventPresenter = eventPresenter
-        self.settingsController = settingsController
         self.eventControllerProvider = eventControllerProvider
         self.analyticsService = analyticsService
         self.tabBarItemStylist = tabBarItemStylist
@@ -57,8 +54,6 @@ class EventsController: UIViewController, UITableViewDataSource, UITableViewDele
         super.viewDidLoad()
 
         navigationItem.title = NSLocalizedString("Events_navigationTitle", comment: "")
-        let settingsIcon = UIImage(named: "settingsIcon")
-        navigationItem.rightBarButtonItem = UIBarButtonItem(image: settingsIcon, style: .Plain, target: self, action: "didTapSettings")
         let backBarButtonItem = UIBarButtonItem(title: NSLocalizedString("Events_backButtonTitle", comment: ""),
             style: UIBarButtonItemStyle.Plain,
             target: nil, action: nil)
@@ -77,6 +72,14 @@ class EventsController: UIViewController, UITableViewDataSource, UITableViewDele
         self.setupSubviews()
         self.applyTheme()
         self.setupConstraints()
+    }
+
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+
+        if let selectedRowIndexPath = self.resultsTableView.indexPathForSelectedRow {
+            self.resultsTableView.deselectRowAtIndexPath(selectedRowIndexPath, animated: false)
+        }
     }
 
     // MARK: <UITableViewDataSource>
@@ -124,11 +127,6 @@ class EventsController: UIViewController, UITableViewDataSource, UITableViewDele
     }
     
     // MARK: Actions
-
-    func didTapSettings() {
-        self.analyticsService.trackCustomEventWithName("Tapped 'Settings' in Events nav bar", customAttributes: nil)
-        self.navigationController?.pushViewController(self.settingsController, animated: true)
-    }
 
     func didTapSearch(sender: UIButton!) {
         let enteredZipCode = self.zipCodeTextField.text!

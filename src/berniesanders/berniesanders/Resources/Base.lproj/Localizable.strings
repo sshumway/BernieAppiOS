@@ -1,6 +1,7 @@
 // Global
 
 "Global_urlAttribution" = "This content is a reformatted version of the original from %@, and is reproduced for educational use only.";
+"Global_share" = "Share";
 
 // News Feed
 
@@ -61,6 +62,7 @@
 // Settings
 
 "Settings_navigationTitle" = "More";
+"Settings_tabBarTitle" = "More";
 "Settings_backButtonTitle" = "Back";
 
 // Settings | Donate
@@ -110,4 +112,7 @@
 "Welcome_viewPrivacyPolicyTitle" = "Privacy Policy";
 "Welcome_agreeToTermsNoticeText" = "By tapping continue, you confirm that you have read our Terms and Conditions and Privacy Policy. This app is not affiliated with or authorized by Bernie 2016.";
 
+// Time intervals
+
+"TimeInterval_today" = "Today";
 
