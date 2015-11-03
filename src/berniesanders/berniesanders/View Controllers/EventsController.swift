@@ -166,7 +166,6 @@ class EventsController: UIViewController, UITableViewDataSource, UITableViewDele
     }
 
     func didTapSetZipCodeCancel(sender: UIButton!) {
-        self.analyticsService.trackCustomEventWithName("Cancelled ZIP Code search on Events", customAttributes: nil)
         self.zipCodeTextField.resignFirstResponder()
     }
     
@@ -178,7 +177,7 @@ class EventsController: UIViewController, UITableViewDataSource, UITableViewDele
         let distances = ["5 \(distanceUnit)", "10 \(distanceUnit)", "20 \(distanceUnit)", "50 \(distanceUnit)", "100 \(distanceUnit)", "250 \(distanceUnit)"]
         
         let distancePicker = ActionSheetStringPicker(
-            title: "Distance",
+            title: "",
             rows: distances,
             initialSelection: 3,
             doneBlock: { picker, index, value in
@@ -205,11 +204,8 @@ class EventsController: UIViewController, UITableViewDataSource, UITableViewDele
         view.addSubview(resultsTableView)
         view.addSubview(noResultsLabel)
         view.addSubview(loadingActivityIndicatorView)
-        
-        var controlTag = 1
 
         zipCodeTextField.delegate = self
-        zipCodeTextField.tag = controlTag++
         zipCodeTextField.placeholder = NSLocalizedString("Events_zipCodeTextBoxPlaceholder",  comment: "")
         zipCodeTextField.keyboardType = .NumberPad
         
@@ -238,7 +234,7 @@ class EventsController: UIViewController, UITableViewDataSource, UITableViewDele
         let searchButton = UIBarButtonItem(title: NSLocalizedString("Events_eventZipCodeDoneButtonTitle", comment: ""), style: .Done, target: self, action: "didTapSetZipCodeDone:")
         let cancelButton = UIBarButtonItem(title: NSLocalizedString("Events_eventZipCodeCancelButtonTitle", comment: ""), style: .Done, target: self, action: "didTapSetZipCodeCancel:")
 
-        let inputAccessoryItems = [spacer, searchButton, cancelButton]
+        let inputAccessoryItems = [cancelButton, spacer, searchButton]
         inputAccessoryView.items = inputAccessoryItems
 
         zipCodeTextField.inputAccessoryView = inputAccessoryView
@@ -253,15 +249,15 @@ class EventsController: UIViewController, UITableViewDataSource, UITableViewDele
         zipCodeTextField.layer.cornerRadius = self.theme.eventsZipCodeCornerRadius()
         zipCodeTextField.layer.sublayerTransform = self.theme.eventsZipCodeTextOffset()
         
-        //searchRadiusField.textColor = self.theme.eventsDistanceTextColor()
-        //searchRadiusField.font = self.theme.eventsDistanceFont()
+        searchRadiusField.textColor = self.theme.eventsDistanceTextColor()
+        searchRadiusField.font = self.theme.eventsDistanceFont()
         searchRadiusField.backgroundColor = self.theme.eventsDistanceBackgroundColor()
         searchRadiusField.layer.borderColor = self.theme.eventsDistanceBorderColor().CGColor
         searchRadiusField.layer.borderWidth = self.theme.eventsDistanceBorderWidth()
         searchRadiusField.layer.cornerRadius = self.theme.eventsDistanceCornerRadius()
         searchRadiusField.layer.sublayerTransform = self.theme.eventsDistanceTextOffset()
         
-        //searchEventsButton.setTitleColor(self.theme.eventsSearchButtonTextColor(), forState: .Normal)
+        searchEventsButton.setTitleColor(self.theme.eventsSearchButtonTextColor(), forState: .Normal)
         searchEventsButton.backgroundColor = self.theme.eventsSearchButtonColor()
         searchEventsButton.titleLabel!.font = self.theme.eventsSearchButtonFont()
         searchEventsButton.layer.cornerRadius = self.theme.eventsSearchButtonCornerRadius()
